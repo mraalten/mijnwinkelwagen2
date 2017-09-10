@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nl.aalten.mijnwinkelwagen</groupId>
+  <artifactId>MijnWinkelwagen2</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>Winkelwagen Web Application</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <spring.version>4.1.6.RELEASE</spring.version>
+    <mysql.driver.version>5.1.25</mysql.driver.version>
+    <itext.version>5.3.4</itext.version>
+    <logback.version>1.0.1</logback.version>
+    <slf4j.version>1.6.4</slf4j.version>
+  </properties>
+
+  <build>
+    <finalName>MijnWinkelwagen2</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <excludes>
+            <exclude>ngapp/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <executions>
+          <execution>
+            <id>exec-npm-install</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+              <executable>npm</executable>
+              <arguments>
+                <argument>install</argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>exec-npm-ng-build</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+              <executable>ng</executable>
+              <arguments>
+                <argument>build</argument>
+                <argument>--base-href=/</argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+	</plugins>
+  </build>
+
+  <dependencies>
+  </dependencies>
+
+
+</project>
+
