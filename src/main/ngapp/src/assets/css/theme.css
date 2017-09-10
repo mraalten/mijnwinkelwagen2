@@ -1,0 +1,47 @@
+.menu {
+    border-radius: 25px;
+    background: #8AC007;
+    padding: 20px;
+    width: 800px;
+    background-color: #b0c4de;
+}
+
+.button-right {
+    float: right;
+}
+
+.list-group-item {
+
+}
+
+.opslaan-produkt-button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #19BFF7;
+    color: #ffffff;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: 150px;
+    height: 30px;
+}
+
+.current-produktgroep-button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #7D19F7;
+    color: #ffffff;
+    padding: 10px 25px 10px 25px;
+    font-size: 15px;
+    width: 150px;
+}
+
+.edit-image {
+    height: 20px;
+    width: 20px;
+    align: right;
+    position: relative;
+    left: -5px;
+}

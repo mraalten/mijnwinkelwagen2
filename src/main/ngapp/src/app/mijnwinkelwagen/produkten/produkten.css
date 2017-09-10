@@ -1,0 +1,83 @@
+.content {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 25px;
+    background: #8AC007;
+    padding: 20px;
+    width: 590px;
+}
+
+.back-button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #17aa56;
+    color: #ffffff;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: 230px;
+    height: 43px;
+}
+
+.toevoegen-produkt-button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #19BFF7;
+    color: #ffffff;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: 250px;
+    float: right;
+    height: 43px;
+}
+
+.produkt-item {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 25px;
+    background: #FCFCFC;
+    padding: 20px;
+    width: 140px;
+    height: 140px;
+}
+
+.produkt-item-selected {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 25px;
+    background: #2590DE;
+    padding: 20px;
+    width: 140px;
+    height: 140px;
+}
+
+.produkt-image {
+    width:  86px;
+    height: 100px;
+}
+
+.text-centered {
+    display: table-cell;
+    vertical-align:middle;
+    text-align: center;
+}
+
+.produktgroep-item-text {
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 8px;
+    background: #95D7ED;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    height: 40px;
+}

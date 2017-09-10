@@ -65,7 +65,7 @@
               <executable>ng</executable>
               <arguments>
                 <argument>build</argument>
-                <argument>--base-href=/</argument>
+                <argument>--base-href=/app/</argument>
               </arguments>
             </configuration>
             <goals>

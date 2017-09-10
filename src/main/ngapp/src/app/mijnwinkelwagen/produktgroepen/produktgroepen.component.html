@@ -1,0 +1,15 @@
+<div class="content">
+
+    <div class="produktgroep-item" *ngFor="let produktGroep of produktGroepen">
+        <a class="no-underline"[routerLink]="['switchProduktGroep', produktGroep.id]">
+            <div>
+                <img src="../mijnwinkelwagen/assets/images/{{produktGroep.imageNaam}}" class="produktgroep-image">
+            </div>
+            <div class="produktgroep-item-text">
+                {{produktGroep.naam}}
+            </div>
+            <br/>
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+.lijst-content {
+    display: inline-block;
+    border-radius: 25px;
+    background: #CBF76A;
+    margin-top: 15px;
+    padding: 5px;
+    width: 320px;
+}
+
+.list-item {
+    border-bottom: 1px black dashed;
+    height: 34px;
+}
+
+.list-item-right {
+    text-align: right;
+    width: 60px;
+}
+
+.list-item-left {
+    text-align: left;
+}
+
+.maak-boodschappenlijst-button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #F12121;
+    color: #ffffff;
+    font-size: 15px;
+    display: inline-block;
+    /*margin-left: 15px;*/
+    text-align: center;
+    /*width: 145px;*/
+    height: 43px;
+}
