@@ -12,10 +12,10 @@
     <div [ngClass]="(produkt.id != produktId) ? 'produkt-item' : 'produkt-item-selected'" *ngFor="let produkt of produkten">
         <div>
             <div (click)='toevoegenProduktWinkelwagen(produkt.id)'>
-                <img src="../mijnwinkelwagen/assets/images/{{produkt.imageNaam}}" class="produkt-image">
+                <img src="../app/assets/images/{{produkt.imageNaam}}" class="produkt-image">
             </div>
             <div class="produktgroep-item-text">
-                <img src="../mijnwinkelwagen/assets/images/edit-icon.jpeg" class="edit-image" alt="Bewerken" data-ng-click="wijzigenProduktGegevens(produkt.id)">
+                <img src="../app/assets/images/edit-icon.jpeg" class="edit-image" alt="Bewerken" data-ng-click="wijzigenProduktGegevens(produkt.id)">
                 <div class="text-centered">{{produkt.naam}}</div>
             </div>
             <br/>

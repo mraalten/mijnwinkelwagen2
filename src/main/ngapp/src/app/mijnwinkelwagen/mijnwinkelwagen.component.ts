@@ -11,9 +11,9 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class MijnWinkelwagenComponent {
-  private produktGroepenUrl = 'http://localhost:9200/mijnwinkelwagen/ophalenproduktgroepen';
-  private produktenUrl = 'http://localhost:9200/ophalenprodukten';
-  private toevoegenProduktWinkelwagenUrl = 'http://localhost:9200/toevoegenproduktWinkelwagen';
+  private produktGroepenUrl = 'http://localhost:8080/mijnwinkelwagen/ophalenproduktgroepen';
+  private produktenUrl = 'http://localhost:8080/mijnwinkelwagen/ophalenprodukten';
+  private toevoegenProduktWinkelwagenUrl = 'http://localhost:8080/mijnwinkelwagen/toevoegenproduktWinkelwagen';
 
   constructor(
       private http: Http
@@ -23,7 +23,7 @@ export class MijnWinkelwagenComponent {
     return this.http
         .get(this.produktGroepenUrl)
         .map((response) => {
-            return response.json();
+            return response.json().produktGroep;
         });
   }
 
@@ -35,7 +35,7 @@ export class MijnWinkelwagenComponent {
         return this.http
             .get(this.produktenUrl, options)
             .map(response => {
-                return response.json();
+                return response.json().produkt;
             });
     }
 

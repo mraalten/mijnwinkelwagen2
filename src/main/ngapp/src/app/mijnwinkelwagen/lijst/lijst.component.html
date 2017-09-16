@@ -15,15 +15,15 @@
             <table width="100%">
                 <tr *ngFor="let item of items">
                     <td class="list-item list-item-left" data-ng-click="verwijderItem(item.id)">
-                        <img src="../mijnwinkelwagen/assets/images/verwijderen.png" width="25px" height="25px">
+                        <img src="../app/assets/images/verwijderen.png" width="25px" height="25px">
                     </td>
                     <td class="list-item list-item-left">{{item.produkt.naam}}</td>
                     <td class="list-item list-item-right">{{item.hoeveelheid}} {{item.produkt.eenheid}}</td>
                     <td class="list-item list-item-right" data-ng-click="subtractUnit(item.id)">
-                        <img src="../mijnwinkelwagen/assets/images/minus.png" width="25px" height="25px">
+                        <img src="../app/assets/images/minus.png" width="25px" height="25px">
                     </td>
                     <td class="list-item list-item-left" data-ng-click="addUnit(item.id)">
-                        <img src="../mijnwinkelwagen/assets/images/plus.png" width="40px" height="40px"> <br/>
+                        <img src="../app/assets/images/plus.png" width="40px" height="40px"> <br/>
                     </td>
 
                 </tr>
