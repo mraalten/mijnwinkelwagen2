@@ -25,9 +25,9 @@ export class ProduktenComponent implements OnInit{
         this.route.params.subscribe(params => this.loadProdukten(params['produktGroepId']));
     }
 
-    toevoegenProduktWinkelwagen(produktId: number) {
-        this.produktId = produktId;
-        this.mijnwinkelwagenComponent.toevoegenProduktAanWinkelwagen(produktId);
+    toevoegenProduktWinkelwagen(produkt: Produkt) {
+        this.produktId = produkt.id;
+        this.mijnwinkelwagenComponent.toevoegenProduktAanWinkelwagen(produkt);
         setTimeout(() => this.produktId = undefined, 100);
     }
 

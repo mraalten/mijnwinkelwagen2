@@ -3,6 +3,7 @@ import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import {ProduktGroep} from "./produktgroep";
 import {Observable} from "rxjs";
 import 'rxjs/Rx';
+import {Produkt} from "./produkt";
 
 @Component({
   selector: 'mijnwinkelwagen-page',
@@ -39,14 +40,19 @@ export class MijnWinkelwagenComponent {
             });
     }
 
-    public toevoegenProduktAanWinkelwagen(produktId: number) {
-      alert('in service: ' + produktId);
+    public toevoegenProduktAanWinkelwagen(produkt: Produkt) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let searchParams = new URLSearchParams();
-        searchParams.append('produktId', produktId.toString());
-        let options = new RequestOptions({params: searchParams.toString() });
+        let produktToAdd = { produkt : produkt};
+        let options = new RequestOptions({headers: headers });
         return this.http
-            .post(this.toevoegenProduktWinkelwagenUrl, options, headers).subscribe;
+            .post(this.toevoegenProduktWinkelwagenUrl, produktToAdd, options).subscribe(
+                res => {
+                    console.log(res);
+                },
+                err => {
+                    console.log("Error occurred");
+                }
+            );
     }
 
 }
