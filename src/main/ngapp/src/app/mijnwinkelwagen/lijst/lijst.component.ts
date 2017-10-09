@@ -1,6 +1,7 @@
-import {Component} from "@angular/core";
-import {WinkelwagenItem} from "../winkelwagenitem";
-import {Produkt} from "../produkt";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {MijnWinkelwagenComponent} from "../mijnwinkelwagen.component";
+import {Item} from "../item";
 
 @Component({
     selector: 'lijst',
@@ -10,13 +11,24 @@ import {Produkt} from "../produkt";
     ]
 })
 
-export class BoodschappenLijstComponent {
-    private items : WinkelwagenItem[];
+export class BoodschappenLijstComponent implements OnInit {
+    private items: Item[];
 
-    constructor() {
-        var produkt = new Produkt(1, 'Sla', 'sla.jpg', 'St.');
-        var item1 = new WinkelwagenItem(produkt, 1);
-        this.items = [item1];
+    constructor(
+        private route: ActivatedRoute,
+        private mijnwinkelwagenComponent: MijnWinkelwagenComponent
+    ){}
+
+    ngOnInit(): void {
+        this.route.params.subscribe(params => this.loadBoodschappenlijst());
+    }
+
+    loadBoodschappenlijst() {
+        let boodschappenLijstId = 1;
+        this.mijnwinkelwagenComponent.loadBoodschappenlijst(boodschappenLijstId).subscribe(
+            items => this.items = items,
+            err => {console.log(err)}
+        );
     }
 
 

@@ -88,7 +88,7 @@ public class ProduktenResource {
     @Path("/toevoegenproduktWinkelwagen")
     @Consumes("application/json")
     public void toevoegenProdukt(Produkt produkt) {
-        repository.toevoegenProduktAanBoodschappenlijst(produkt.getId());
+        repository.toevoegenProduktAanBoodschappenlijst(produkt);
     }
 
     @POST

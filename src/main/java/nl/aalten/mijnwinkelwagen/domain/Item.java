@@ -14,7 +14,7 @@ public class Item implements Comparable<Item> {
 
     @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "produktId")
-    private Produkt product;
+    private Produkt produkt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "boodschappenlijstId")
@@ -23,29 +23,29 @@ public class Item implements Comparable<Item> {
 
     private Integer hoeveelheid;
 
-    public Produkt getProduct() {
-        return product;
+    public Produkt getProdukt() {
+        return produkt;
     }
 
     public Long getProduktGroepId() {
-        if (product != null && product.getProduktGroep() != null) {
-            return product.getProduktGroep().getId();
+        if (produkt != null && produkt.getProduktGroep() != null) {
+            return produkt.getProduktGroep().getId();
         }
         return null;
     }
 
     public void addUnit() {
-        hoeveelheid = hoeveelheid + product.getEenheid().getPlusMinHoeveelheid();
+        hoeveelheid = hoeveelheid + produkt.getEenheid().getPlusMinHoeveelheid();
     }
 
     public void subtractUnit() {
-        if (!hoeveelheid.equals(product.getEenheid().getDefaultHoeveelheid())) {
-            hoeveelheid = hoeveelheid - product.getEenheid().getPlusMinHoeveelheid();
+        if (!hoeveelheid.equals(produkt.getEenheid().getDefaultHoeveelheid())) {
+            hoeveelheid = hoeveelheid - produkt.getEenheid().getPlusMinHoeveelheid();
         }
     }
 
     public int compareTo(Item anItem) {
-        return new Integer(this.product.getProduktGroep().getSortOrder()).compareTo(anItem.getProduct().getProduktGroep().getSortOrder());
+        return new Integer(this.produkt.getProduktGroep().getSortOrder()).compareTo(anItem.getProdukt().getProduktGroep().getSortOrder());
     }
 
     public Long getId() {
@@ -60,8 +60,8 @@ public class Item implements Comparable<Item> {
         return hoeveelheid;
     }
 
-    public void setProduct(Produkt product) {
-        this.product = product;
+    public void setProdukt(Produkt product) {
+        this.produkt = product;
     }
 
     public void setId(Long id) {

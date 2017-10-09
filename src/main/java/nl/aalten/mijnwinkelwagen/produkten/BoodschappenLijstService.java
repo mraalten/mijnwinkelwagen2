@@ -44,7 +44,7 @@ public class BoodschappenLijstService {
         ProduktGroep currentPg = null;
         for (Item item : items) {
             ct.addText(createProdukt(item, currentPg));
-            currentPg = item.getProduct().getProduktGroep();
+            currentPg = item.getProdukt().getProduktGroep();
             ct.addText(Chunk.NEWLINE);
         }
         formatWrittenLines(document, ct);
@@ -72,7 +72,7 @@ public class BoodschappenLijstService {
 
     public Phrase createProdukt(Item item, ProduktGroep currentPg) {
         Phrase p = new Phrase();
-        if (currentPg == null ? true : !item.getProduct().getProduktGroep().getId().equals(currentPg.getId())) {
+        if (currentPg == null ? true : !item.getProdukt().getProduktGroep().getId().equals(currentPg.getId())) {
             writeProduktGroep(item, p);
         }
         writeProdukt(item, p);
@@ -82,21 +82,21 @@ public class BoodschappenLijstService {
 
     private void writeProdukt(Item item, Phrase p) {
         p.add("   ");
-        p.add(new Chunk(item.getProduct().getNaam(), FONT_NORMAL));
+        p.add(new Chunk(item.getProdukt().getNaam(), FONT_NORMAL));
         p.add(SPACE);
-        if (StringUtils.isNotEmpty(item.getProduct().getMerk())) {
+        if (StringUtils.isNotEmpty(item.getProdukt().getMerk())) {
             p.add("(");
-            p.add(new Chunk(item.getProduct().getMerk(), FONT_NORMAL));
+            p.add(new Chunk(item.getProdukt().getMerk(), FONT_NORMAL));
             p.add(") ");
         }
         p.add(" - ");
         p.add(new Chunk(item.getHoeveelheid().toString(), FONT_NORMAL));
         p.add(SPACE);
-        p.add(new Chunk(item.getProduct().getEenheid().getOmschrijving(), FONT_NORMAL));
+        p.add(new Chunk(item.getProdukt().getEenheid().getOmschrijving(), FONT_NORMAL));
     }
 
     private void writeProduktGroep(Item item, Phrase p) {
-        p.add(new Chunk(item.getProduct().getProduktGroep().getNaam(), FONT_BOLD));
+        p.add(new Chunk(item.getProdukt().getProduktGroep().getNaam(), FONT_BOLD));
         p.add(new LineSeparator(0.3f, 100, null, Element.ALIGN_CENTER, -2));
         p.add(Chunk.NEWLINE);
     }

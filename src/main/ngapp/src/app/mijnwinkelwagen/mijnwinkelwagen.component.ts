@@ -15,6 +15,7 @@ export class MijnWinkelwagenComponent {
   private produktGroepenUrl = 'http://localhost:8080/mijnwinkelwagen/ophalenproduktgroepen';
   private produktenUrl = 'http://localhost:8080/mijnwinkelwagen/ophalenprodukten';
   private toevoegenProduktWinkelwagenUrl = 'http://localhost:8080/mijnwinkelwagen/toevoegenproduktWinkelwagen';
+  private ophalenBoodschappenLijstUrl = 'http://localhost:8080/mijnwinkelwagen/ophalenboodschappenlijst';
 
   constructor(
       private http: Http
@@ -55,4 +56,20 @@ export class MijnWinkelwagenComponent {
             );
     }
 
+    public loadBoodschappenlijst(boodschappenLijstId: number) {
+        let searchParams = new URLSearchParams();
+        searchParams.append('boodschappenLijstId', boodschappenLijstId.toString());
+        return this.doGet(searchParams, this.ophalenBoodschappenLijstUrl);
+    }
+
+    public doGet(searchParams : URLSearchParams, url : string) {
+        let options = new RequestOptions({params: searchParams.toString() });
+
+        return this.http
+            .get(url, options)
+            .map(response => {
+                let resp = response.json();
+                return response.json().item;
+            });
+    }
 }

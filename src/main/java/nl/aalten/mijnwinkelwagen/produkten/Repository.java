@@ -28,12 +28,12 @@ public class Repository {
         em = factory.createEntityManager();
     }
 
-    public void toevoegenProduktAanBoodschappenlijst(Long produktId) {
-        if (produktId != null) {
-            Produkt produkt = getProdukt(produktId.intValue());
+    public void toevoegenProduktAanBoodschappenlijst(Produkt produkt) {
+        if (produkt != null) {
+            Produkt produktToAdd = getProdukt(produkt.getId().intValue());
             Item item = new Item();
             item.setHoeveelheid(produkt.getEenheid().getDefaultHoeveelheid());
-            item.setProduct(produkt);
+            item.setProdukt(produktToAdd);
             Boodschappenlijst boodschappenlijst = getBoodschappenLijst(BOODSCHAPPENLIJST_NR);
             boodschappenlijst.addItem(item);
             storeBoodschappenLijst(boodschappenlijst);
